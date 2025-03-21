@@ -1,0 +1,139 @@
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: calc(100vh - 80px);
+    padding: 2rem;
+    background-color: #f5f5f5;
+}
+
+.login-card {
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 450px;
+    padding: 2.5rem;
+    animation: fadeIn 0.6s ease-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.login-header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.login-header h1 {
+    color: var(--text-color);
+    margin-bottom: 0.5rem;
+    font-size: 2rem;
+}
+
+.login-header p {
+    color: #666;
+    font-size: 1rem;
+}
+
+.error-message {
+    background-color: #ffeeee;
+    color: #e53935;
+    padding: 1rem;
+    border-radius: 5px;
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+.login-form {
+    margin-bottom: 1.5rem;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: #666;
+    font-size: 0.9rem;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #ddd;
+    background-color: white !important;
+    border-radius: 5px;
+    font-size: 1rem;
+    transition: border-color 0.3s;
+}
+
+.form-group input:focus {
+    border-color: var(--secondary-color);
+    outline: none;
+}
+
+/* 自動入力時の背景色を白に設定 */
+.form-group input:-webkit-autofill,
+.form-group input:-webkit-autofill:hover,
+.form-group input:-webkit-autofill:focus {
+    -webkit-box-shadow: 0 0 0px 1000px white inset !important;
+    transition: background-color 5000s ease-in-out 0s;
+    background-color: white !important;
+}
+
+.form-action {
+    margin-top: 2rem;
+}
+
+.login-button {
+    width: 100%;
+    padding: 0.75rem;
+    background-color: var(--secondary-color);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.login-button:hover {
+    background-color: var(--secondary-color-dark, #1a8870);
+}
+
+.login-button:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+}
+
+.login-footer {
+    text-align: center;
+    color: #666;
+    font-size: 0.9rem;
+}
+
+.login-footer p {
+    margin: 0.5rem 0;
+}
+
+.login-footer a {
+    color: var(--secondary-color);
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.login-footer a:hover {
+    text-decoration: underline;
+}
