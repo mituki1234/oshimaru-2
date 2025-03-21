@@ -2,7 +2,6 @@
 import { useState, useEffect, Suspense } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import { supabase } from "@/app/lib/supabase";
-import Link from "next/link";
 import "./page.css";
 
 // 実際のコンポーネントをラップする内部コンポーネントを作成
