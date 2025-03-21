@@ -1,5 +1,3 @@
-import "@/app/components/components.css";
-
 export default function Info() {
     return (
         <section className="info">

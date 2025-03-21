@@ -1,5 +1,3 @@
-import "@/app/components/components.css";
-
 export default function AnnouncementsList() {
     return (
         <section className="announcements">

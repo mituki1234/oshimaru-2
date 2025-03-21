@@ -1,5 +1,3 @@
-import "@/app/components/components.css";
-
 export default function Hero() {
     return (
         <div className="hero">
