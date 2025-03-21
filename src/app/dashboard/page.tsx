@@ -5,6 +5,7 @@ import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 import { supabase } from '@/app/lib/supabase';
 import { User } from '@supabase/supabase-js';
+import "@/app/dashboard/page.css";
 
 export default function Dashboard() {
     const [user, setUser] = useState<User | null>(null);
