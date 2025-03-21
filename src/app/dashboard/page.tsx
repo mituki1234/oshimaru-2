@@ -16,23 +16,18 @@ export default function Dashboard() {
     useEffect(() => {
         const getSession = async (): Promise<void> => {
             try {
-                console.log("[Dashboard] セッション取得開始");
                 setLoading(true);
                 const { data: { session }, error } = await supabase.auth.getSession();
-                console.log("[Dashboard] セッション取得結果:", { session, error });
                 
                 if (error) {
                     throw error;
                 }
                 if (session?.user) {
-                    console.log("[Dashboard] 有効なユーザー:", session.user);
                     setUser(session.user);
                 } else {
-                    console.log("[Dashboard] セッションなし、ログインへリダイレクト");
                     router.push('/login');
                 }
             } catch (error) {
-                console.error("[Dashboard] セッション取得エラー:", error);
                 setError(error instanceof Error ? error.message : "不明なエラー");
                 router.push('/login');
             } finally {
@@ -50,7 +45,7 @@ export default function Dashboard() {
             }
             router.push("/login");
         } catch (error) {
-            console.error("ログアウトエラー:", error);
+            setError("ログアウトに失敗しました");
         }
     };
 
