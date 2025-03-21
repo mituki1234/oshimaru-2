@@ -1,35 +1,45 @@
 "use client";
-import { useState, useEffect } from "react";
-import { supabase } from "@/app/lib/supabase";
-import { useRouter } from "next/navigation";
-import Link from "next/link";
-import "./dashboard.css";
-import { User } from "@supabase/supabase-js";
+
+import { useState, useEffect } from 'react';
+import { useRouter } from 'next/navigation';
+import Link from 'next/link';
+import { supabase } from '@/app/lib/supabase';
+import { User } from '@supabase/supabase-js';
 
 export default function Dashboard() {
     const [user, setUser] = useState<User | null>(null);
     const [loading, setLoading] = useState<boolean>(true);
+    const [error, setError] = useState<string | null>(null);
     const router = useRouter();
 
     useEffect(() => {
         const getSession = async (): Promise<void> => {
             try {
+                console.log("[Dashboard] セッション取得開始");
                 setLoading(true);
                 const { data: { session }, error } = await supabase.auth.getSession();
+                console.log("[Dashboard] セッション取得結果:", { session, error });
+                
                 if (error) {
                     throw error;
                 }
                 if (session?.user) {
+                    console.log("[Dashboard] 有効なユーザー:", session.user);
                     setUser(session.user);
+                } else {
+                    console.log("[Dashboard] セッションなし、ログインへリダイレクト");
+                    router.push('/login');
                 }
             } catch (error) {
-                console.error("セッション取得エラー:", error);
+                console.error("[Dashboard] セッション取得エラー:", error);
+                setError(error instanceof Error ? error.message : "不明なエラー");
+                router.push('/login');
             } finally {
                 setLoading(false);
             }
         };
         getSession();
-    }, []);
+    }, [router]);
 
     const handleSignOut = async (): Promise<void> => {
         try {

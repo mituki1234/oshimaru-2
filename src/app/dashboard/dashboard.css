@@ -1,4 +1,54 @@
 /* ダッシュボード全体のレイアウト */
+header {
+  display: flex;
+  align-items: center;
+  background-color: #fff;
+  height: 80px;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1);
+}
+.logo {
+  margin-left: 40px;
+}
+
+.logo h2 {
+  color: var(--text-color);
+  font-size: 1.8rem;
+}
+
+.logo span {
+  color: var(--secondary-color);
+}
+
+.primary-btn {
+  background-color: var(--secondary-color);
+  text-decoration: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.primary-btn span {
+  color: var(--primary-white);
+  font-size: 1.1rem;
+}
+
+.secondary-btn {
+  border: 2px solid var(--secondary-color);
+  text-decoration: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.secondary-btn span {
+  color: var(--secondary-color);
+  font-size: 1.1rem;
+}
+/* ヘッダー内のプライマリボタンのスタイルを保持 */
+header .primary-btn {
+  margin-left: auto;
+  margin-right: 60px;
+}
 .dashboard-layout {
   display: flex;
   min-height: 100vh;
